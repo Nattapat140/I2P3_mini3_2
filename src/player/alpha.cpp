@@ -51,7 +51,7 @@ void write_valid_spot(std::ofstream& fout) {
   Move move;
   for(auto& curr : root->legal_actions){
     // Choose a random spot.
-    curr_val = AlphaBeta::alphabeta(root->next_state(curr), 5,-1e9,1e9, false);
+    curr_val = AlphaBeta::alphabeta(root->next_state(curr), 6,-1e9,1e9, false);
     if(curr_val > max_val){
       max_val = curr_val;
       move = curr;
