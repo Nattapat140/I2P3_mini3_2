@@ -13,7 +13,17 @@
  */
 int State::evaluate(){
   // [TODO] design your own evaluation function
-  return 0;
+  //return 0;
+  int curr_val = 0;
+  //int pieces_val[7] = {0,1,2,3,4,5,6}; // 0 empty, 1 pawn, 2 rook, 3 horse, 4 bishop, 5 queen, 6 king
+  for(int i=0;i<6;i++){
+    for(int j=0;j<5;j++){
+      int me_player = this->board.board[player][i][j];
+      int oppo_player = this->board.board[1-player][i][j]; //if me is 1 then the 0 is the oppo and other way around
+      curr_val += me_player - oppo_player;
+    }
+  } 
+  return curr_val;
 }
 
 
@@ -262,3 +272,4 @@ std::string State::encode_state(){
   }
   return ss.str();
 }
+
