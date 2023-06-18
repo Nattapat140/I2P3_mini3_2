@@ -41,6 +41,7 @@ void read_board(std::ifstream& fin) {
  * 
  * @param fout 
  */
+
 void write_valid_spot(std::ofstream& fout) {
   // Keep updating the output until getting killed.
   if(!root->legal_actions.size()){
@@ -50,12 +51,15 @@ void write_valid_spot(std::ofstream& fout) {
   int curr_val = 0;
   Move move;
   for(auto& curr : root->legal_actions){
-    // Choose a random spot.
+    // Choose a best spot.
     curr_val = Minimax::minimax(root->next_state(curr), 4, false);
     if(curr_val > max_val){
       max_val = curr_val;
       move = curr;
     }
+    //bug if iz the same place then it will be invalid move so we need to check it first 
+    //if it equal then we choose the first guy in legal_actions
+    //prevent move 0,0 to 0,0
     if(move.first == move.second){
       move = root->legal_actions[0];
     }

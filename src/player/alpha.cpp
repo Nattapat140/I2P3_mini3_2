@@ -56,6 +56,9 @@ void write_valid_spot(std::ofstream& fout) {
       max_val = curr_val;
       move = curr;
     }
+    //bug if iz the same place then it will be invalid move so we need to check it first 
+    //if it equal then we choose the first guy in legal_actions
+    //prevent move 0,0 to 0,0
     if(move.first == move.second){
       move = root->legal_actions[0];
     }

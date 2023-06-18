@@ -14,6 +14,7 @@
  * @return Move 
  */
 
+//sudo code from ppt
 int Minimax::minimax(State *state, int max_depth, bool is_player_minimizer) {
   if (max_depth == 0) {
     return state->evaluate();

@@ -14,6 +14,8 @@
  * @return Move 
  */
 
+//basically same as the minimax but faster with cutting out the not needed move
+//sudo code form ppt
 int AlphaBeta::alphabeta(State *state, int max_depth,int alpha, int beta, bool is_player_minimizer){
   if (max_depth == 0) {
     return state->evaluate();
