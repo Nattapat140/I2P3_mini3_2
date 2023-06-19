@@ -15,13 +15,13 @@ int State::evaluate(){
   // [TODO] design your own evaluation function
   //return 0;
   int curr_val = 0;
-  int board_val[7] = {0,10,20,30,40,50,600};
-  //in board = 0 empty, 10 pawn, 20 rook, 30 horse, 40 bishop, 50 queen, 600 king
+  //in board = 0 empty, 1 pawn, 2 rook, 3 horse, 4 bishop, 5 queen, 6 king
   //in this 2 for loops is like a real time updating board's values
   for(int i=0;i<6;i++){
     for(int j=0;j<5;j++){
-      int me_player = board_val[(int)this->board.board[player][i][j]];
-      int oppo_player = board_val[(int)this->board.board[!player][i][j]]; //if me is 1 then the 0 is the oppo and other way around
+      //somehow it's works lolololloll by increasing value by 2.02 as the original val.
+      int me_player = (this->board.board[player][i][j])*2.0;
+      int oppo_player = (this->board.board[!player][i][j]); //if me is 1 then the 0 is the oppo and other way around
       curr_val += me_player - oppo_player;
     }
   } 

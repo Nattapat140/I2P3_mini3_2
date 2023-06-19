@@ -25,8 +25,8 @@ int Minimax::minimax(State *state, int max_depth, bool is_player_minimizer) {
     int value = -1e9;
     for (auto& move : state->legal_actions) {
       State* new_state = state->next_state(move);
-      int evaluation = minimax(new_state, max_depth - 1, false);
-      value = std::max(value, evaluation);
+      int tmpVal = minimax(new_state, max_depth - 1, false);
+      value = std::max(value, tmpVal);
     }
     return value;
   }
@@ -35,8 +35,8 @@ int Minimax::minimax(State *state, int max_depth, bool is_player_minimizer) {
     int value = 1e9;
     for (auto& move : state->legal_actions) {
       State* new_state = state->next_state(move);
-      int evaluation = minimax(new_state, max_depth - 1, true);
-      value = std::min(value, evaluation);
+      int tmpVal = minimax(new_state, max_depth - 1, true);
+      value = std::min(value, tmpVal);
     }
     return value;
   }

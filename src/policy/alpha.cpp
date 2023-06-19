@@ -25,8 +25,9 @@ int AlphaBeta::alphabeta(State *state, int max_depth,int alpha, int beta, bool i
     int value = -1e9;
     for (auto& move : state->legal_actions) {
       State* new_state = state->next_state(move);
-      int evaluation = alphabeta(new_state, max_depth - 1,alpha, beta, false);
-      value = std::max(value, evaluation);
+      int tmpVal = alphabeta(new_state, max_depth - 1,alpha, beta, false);
+      value = std::max(value, tmpVal);
+      //skip the not needed node
       alpha = std::max(alpha, value);
       if(alpha >= beta){
         break;
@@ -39,8 +40,9 @@ int AlphaBeta::alphabeta(State *state, int max_depth,int alpha, int beta, bool i
     int value = 1e9;
     for (auto& move : state->legal_actions) {
       State* new_state = state->next_state(move);
-      int evaluation = alphabeta(new_state, max_depth - 1,alpha,beta, true);
-      value = std::min(value, evaluation);
+      int tmpVal = alphabeta(new_state, max_depth - 1,alpha,beta, true);
+      value = std::min(value, tmpVal);
+      //skip the not needed node
       beta = std::min(beta, value);
       if(beta <= alpha){
         break;

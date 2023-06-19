@@ -37,7 +37,7 @@ void read_board(std::ifstream& fin) {
 
 
 /**
- * @brief randomly choose a move and then write it into output file
+ * @brief choose a move and then write it into output file
  * 
  * @param fout 
  */
@@ -50,13 +50,12 @@ void write_valid_spot(std::ofstream& fout) {
   int curr_val = 0;
   Move move;
   for(auto& curr : root->legal_actions){
-    // Choose a random spot.
     curr_val = AlphaBeta::alphabeta(root->next_state(curr), 5,-1e9,1e9, false);
     if(curr_val > max_val){
-      max_val = curr_val;
-      move = curr;
+      move = curr; //choose the best move
+      max_val = curr_val; //set the next max val
     }
-    //bug if iz the same place then it will be invalid move so we need to check it first 
+    //bug if it's the same place then it will be invalid move so we need to check it first 
     //if it equal then we choose the first guy in legal_actions
     //prevent move 0,0 to 0,0
     if(move.first == move.second){
