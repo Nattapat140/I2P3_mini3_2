@@ -17,9 +17,10 @@ int State::evaluate(){
   int curr_val = 0;
   //in board = 0 empty, 1 pawn, 2 rook, 3 horse, 4 bishop, 5 queen, 6 king
   //in this 2 for loops is like a real time updating board's values
-  for(int i=0;i<6;i++){
-    for(int j=0;j<5;j++){
-      //somehow it's works lolololloll by increasing value by 2.02 as the original val.
+  for(int i=0;i<6;i++){ //H
+    for(int j=0;j<5;j++){ //W
+      //somehow it's works lolololloll by increasing value by 2.0 as the original val.
+      //adding *2.0 make me won against the baseline2
       int me_player = (this->board.board[player][i][j])*2.0;
       int oppo_player = (this->board.board[!player][i][j]); //if me is 1 then the 0 is the oppo and other way around
       curr_val += me_player - oppo_player;
