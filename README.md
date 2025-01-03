@@ -1,7 +1,7 @@
 <h1>Mini-Chess AI Battle:</h1>
 
 Welcome to the Mini-Chess AI Battle repository! <br><br>
-This university project aims to help students have a better understand of basic AI by developing your own AI player for a mini-chess variant using Minimin / Minimax or other algorithms. Compete with the baselines and conquer the top rank of the class!!
+This university project (2023) aims to help students have a better understand of basic AI by developing your own AI player for a mini-chess variant using Minimin / Minimax or other algorithms. Compete with the baselines and conquer the top rank of the class!!
 
 <h3>📖 About the Project</h3>
 Mini-Chess Variant: A simplified version of chess, perfect for experimenting with AI strategies while keeping things manageable.<br>
